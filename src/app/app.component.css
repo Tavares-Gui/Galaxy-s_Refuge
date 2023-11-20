@@ -1,0 +1,21 @@
+mat-toolbar {
+    background-color: #161A1D;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.minhaLogo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.nomeRestaurante {
+    color: #FFFFFF;
+}
+
+.itensCardapio {
+    color: antiquewhite;
+}
