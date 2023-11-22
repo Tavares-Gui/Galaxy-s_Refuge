@@ -1,5 +1,10 @@
+@font-face {
+    font-family: starjedi;
+    src: url(../assets/font/Starjedi.ttf);
+}
+
 mat-toolbar {
-    background-color: #161A1D;
+    background-color: #BB9C7D;
 }
 
 .example-spacer {
@@ -14,8 +19,32 @@ mat-toolbar {
 
 .nomeRestaurante {
     color: #FFFFFF;
+    font-family: 'starjedi';
+    font-size: 35px;
 }
 
-.itensCardapio {
-    color: antiquewhite;
+.card {
+    height: 450px;
+    width: 350px;
+    border-radius: 5%;
+    background-color: black;
+}
+
+.centerCol {
+    display: flex;
+    justify-content: center;
+}
+
+.card-img-top {
+    margin: 1px;
+    height: 345px;
+    width: 345px;
+    border-radius: 5%;
+}
+
+.card-title {
+    text-align: center;
+    color: #FFFFFF;
+    font-family: 'starjedi';
+    font-size: 35px;
 }
