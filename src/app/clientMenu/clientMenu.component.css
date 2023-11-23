@@ -45,6 +45,10 @@ mat-toolbar {
     align-items: center;
 }
 
+.links {
+    text-align: center;
+}
+
 .cardHead {
     height: 500px;
     border-radius: 5%;
