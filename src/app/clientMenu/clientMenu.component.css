@@ -4,7 +4,7 @@
 }
 
 mat-toolbar {
-    background-color: #000000;
+    background-color: #00000000;
 }
 
 .example-spacer {
@@ -181,10 +181,6 @@ body {
     font-weight: 500;
     
   }
-  h1 {
-    font-weight: 300;
-    font-size: 1rem;
-  }
   
   .img-wrapper a {
     overflow: hidden;
@@ -214,3 +210,20 @@ body {
       width: 50px;
       fill: currentcolor;
   }
+
+/* width */
+::-webkit-scrollbar {
+  width: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: none; 
+  border-radius: none;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: none; 
+  border-radius: none;
+}
