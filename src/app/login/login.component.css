@@ -127,6 +127,7 @@ nav ul li a:hover,
 
 .box{
 	position:absolute;
+  margin-left: 140px;
 	left:50%;
 	top:50%;
 	transform: translate(-50%,-50%);

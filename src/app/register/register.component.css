@@ -127,6 +127,8 @@ nav ul li a:hover,
 
 .box{
 	position:absolute;
+  margin-top: 100px;
+  margin-left: 140px;
 	left:50%;
 	top:50%;
 	transform: translate(-50%,-50%);
@@ -154,7 +156,6 @@ nav ul li a:hover,
   border:0;
   border-bottom:1px solid #555;  
   background:transparent;
-  width:100%;
   padding:8px 0 5px 0;
   font-size:16px;
   color:#fff;
