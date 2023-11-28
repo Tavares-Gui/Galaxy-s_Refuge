@@ -18,7 +18,7 @@ create table Imagem(
 	Foto varbinary(MAX) not null
 );
 go
--- a
+
 create table Usuario(
 	ID int identity primary key,
 	Nome varchar(80) not null,
