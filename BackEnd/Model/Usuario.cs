@@ -1,7 +1,7 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace DonOrgBack.Model;
+namespace Back.Model;
 
 public partial class Usuario
 {
@@ -9,9 +9,17 @@ public partial class Usuario
 
     public string Nome { get; set; }
 
+    public string Cpf { get; set; }
+
+    public string Email { get; set; }
+
+    public DateTime DataNasc { get; set; }
+
+    public string Numero { get; set; }
+
     public string Senha { get; set; }
 
     public string Salt { get; set; }
 
-    public virtual ICollection<Post> Posts { get; } = new List<Post>();
+    public bool Adm { get; set; }
 }

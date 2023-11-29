@@ -5,14 +5,20 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 
-using DonOrgBack.Model;
-using DonOrgBack.Services;
+using Back.Model;
+using Back.Services;
+using System.Security.Cryptography;
+using Trevisharp.Security.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<DonOrgDbContext>();
-builder.Services.AddTransient<IUserService, UserService>();
+builder.Services.AddScoped<GalaxysRefugeDbContext>();
+builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+builder.Services.AddSingleton<CryptoService>(p => new(){
+    InternalKeySize = 24,
+    UpdatePeriod = TimeSpan.FromDays(1)
+});
 builder.Services.AddSingleton<ISecurityService, SecurityService>();
 
 builder.Services.AddCors(options =>
@@ -25,6 +31,7 @@ builder.Services.AddCors(options =>
                 .AllowAnyOrigin();
         });
 });
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

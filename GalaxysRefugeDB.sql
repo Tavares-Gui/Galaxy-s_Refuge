@@ -11,27 +11,15 @@ go
 use GalaxysRefugeDB
 go
 
-
-/*
-create table Imagem(
-	ID int identity primary key,
-	Foto varbinary(MAX) not null
-);
-go
-
 create table Usuario(
 	ID int identity primary key,
 	Nome varchar(80) not null,
+	Cpf varchar(20) not null,
+	Email varchar(20) not null,
+	DataNasc date not null,
+	Numero varchar(20) not null,
 	Senha varchar(MAX) not null,
 	Salt varchar(200) not null,
-	ImagemID int references Imagem(ID)
+	Adm bit not null,
 );
 go
-
-create table Post(
-	ID int identity primary key,
-	UsuarioID int references Usuario(ID) not null,
-	ImagemID int references Imagem(ID) not null
-);
-go
-*/

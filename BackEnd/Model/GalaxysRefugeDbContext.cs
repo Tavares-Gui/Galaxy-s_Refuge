@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace BackEnd.Model;
+namespace Back.Model;
 
 public partial class GalaxysRefugeDbContext : DbContext
 {
@@ -15,59 +15,37 @@ public partial class GalaxysRefugeDbContext : DbContext
     {
     }
 
-    public virtual DbSet<Imagem> Imagems { get; set; }
-
-    public virtual DbSet<Post> Posts { get; set; }
-
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=CT-C-001QF\\SQLEXPRESS;Initial Catalog=DonOrgDB;Integrated Security=True;TrustServerCertificate=true");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=CT-C-001YW\\SQLEXPRESS;Initial Catalog=GalaxysRefugeDB;Integrated Security=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Imagem>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Imagem__3214EC277BBFC465");
-
-            entity.ToTable("Imagem");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Foto).IsRequired();
-        });
-
-        modelBuilder.Entity<Post>(entity =>
-        {
-            entity.HasKey(e => e.Id).HasName("PK__Post__3214EC270212E887");
-
-            entity.ToTable("Post");
-
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.ImagemId).HasColumnName("ImagemID");
-            entity.Property(e => e.UsuarioId).HasColumnName("UsuarioID");
-
-            entity.HasOne(d => d.Imagem).WithMany(p => p.Posts)
-                .HasForeignKey(d => d.ImagemId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Post__ImagemID__3D5E1FD2");
-
-            entity.HasOne(d => d.Usuario).WithMany(p => p.Posts)
-                .HasForeignKey(d => d.UsuarioId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Post__UsuarioID__3C69FB99");
-        });
-
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC27BE60A8FE");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC27F998BD66");
 
             entity.ToTable("Usuario");
 
             entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.ImagemId).HasColumnName("ImagemID");
+            entity.Property(e => e.Cpf)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsUnicode(false);
+            entity.Property(e => e.DataNasc).HasColumnType("date");
+            entity.Property(e => e.Email)
+                .IsRequired()
+                .HasMaxLength(20)
+                .IsUnicode(false);
             entity.Property(e => e.Nome)
                 .IsRequired()
                 .HasMaxLength(80)
+                .IsUnicode(false);
+            entity.Property(e => e.Numero)
+                .IsRequired()
+                .HasMaxLength(20)
                 .IsUnicode(false);
             entity.Property(e => e.Salt)
                 .IsRequired()
@@ -76,10 +54,6 @@ public partial class GalaxysRefugeDbContext : DbContext
             entity.Property(e => e.Senha)
                 .IsRequired()
                 .IsUnicode(false);
-
-            entity.HasOne(d => d.Imagem).WithMany(p => p.Usuarios)
-                .HasForeignKey(d => d.ImagemId)
-                .HasConstraintName("FK__Usuario__ImagemI__398D8EEE");
         });
 
         OnModelCreatingPartial(modelBuilder);
