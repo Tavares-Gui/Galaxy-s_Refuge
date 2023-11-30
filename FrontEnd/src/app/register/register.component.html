@@ -14,34 +14,34 @@
       <form>
         <span class="text-center">register</span>
         <div class="input-container">
-          <input type="text" required="" />
+          <input type="text" required="" [(ngModel)]="username" title="input"/>
           <label>Name</label>
         </div>
         <div class="input-container">
-          <input type="text" required="" />
+          <input type="text" required="" [(ngModel)]="cpf" title="input"/>
           <label>CPF</label>
         </div>
         <div class="input-container">
-          <input type="date" required="" />
+          <input type="date" required="" [(ngModel)]="dataNasc" title="input"/>
           <label>Data de Nascimento</label>
         </div>
         <div class="input-container">
-          <input type="tel" required="" />
+          <input type="tel" required="" [(ngModel)]="telefone" title="input"/>
           <label>Telefone</label>
         </div>
         <div class="input-container">
-          <input type="email" required="" />
+          <input type="email" required="" [(ngModel)]="email" title="input"/>
           <label>Email</label>
         </div>
         <div class="input-container">
-          <input type="password" required="" />
+          <input type="password" required="" [(ngModel)]="password" title="input"/>
           <label>Password</label>
         </div>
         <div class="input-container">
-          <input type="password" required="" />
+          <input type="password" required="" [(ngModel)]="confirmPassword" title="input"/>
           <label>Confirm Password</label>
         </div>
-        <button type="button" class="btn">submit</button>
+        <button type="button" class="btn" (click)="create()">submit</button>
       </form>
     </div>
   </div>
