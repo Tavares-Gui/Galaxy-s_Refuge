@@ -14,5 +14,5 @@ import {MatGridListModule} from '@angular/material/grid-list';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'example-app';
+  title = 'FrontEnd';
 }
